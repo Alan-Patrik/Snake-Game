@@ -20,3 +20,5 @@
 # Ignorar arquivos temporários e de backup
 *~
 *.bak
+
+*.txt
