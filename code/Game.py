@@ -3,9 +3,7 @@ import pygame
 from code.Const import SCREEN_WIDTH, SCREEN_HEIGHT, FPS
 from code.DBProxy import DBProxy
 from code.Food import Food
-from code.GameOver import GameOver
 from code.GameState import GameState
-from code.HighScore import HighScore
 from code.Menu import Menu
 from code.Snake import Snake
 from code.SpecialFood import SpecialFood
