@@ -3,6 +3,7 @@ import pygame
 from code.Const import BLACK, WHITE, SCREEN_WIDTH, SCREEN_HEIGHT
 from code.GameState import GameState
 from code.Menu import Menu
+from code.Utils import Utils
 
 
 class HighScore(GameState):
@@ -13,10 +14,13 @@ class HighScore(GameState):
     def handle_input(self, game):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                print(f"[{Utils.get_formatted_date()}] [INFO] Game finished!!")
+                print(f"[{Utils.get_formatted_date()}] [INFO] Closing database connection")
                 game.db_proxy.close()
                 pygame.quit()
                 exit()
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_m:  # Pressionou M para voltar ao menu
+                print(f"[{Utils.get_formatted_date()}] [INFO] Return to Menu")
                 pygame.time.delay(200)  # Pequeno atraso para evitar mudança rápida de estado
                 game.set_state(Menu(game))
             else:
@@ -60,4 +64,5 @@ class HighScore(GameState):
 
     # Buscar as 5 melhores pontiuação no jogo
     def get_scores_into_database(self, game):
+        print(f"[{Utils.get_formatted_date()}] [INFO] Returning top 5 scores from the database")
         self.top_scores = game.db_proxy.get_top_scores()

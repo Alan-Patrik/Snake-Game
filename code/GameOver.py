@@ -2,6 +2,7 @@ import pygame
 
 from code.Const import BLACK, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE
 from code.GameState import GameState
+from code.Utils import Utils
 
 
 class GameOver(GameState):
@@ -13,13 +14,17 @@ class GameOver(GameState):
     def handle_input(self, game):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                print(f"[{Utils.get_formatted_date()}] [INFO] Game finished!!")
+                print(f"[{Utils.get_formatted_date()}] [INFO] Closing database connection")
                 pygame.quit()
                 game.db_proxy.close()
                 exit()
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_m:
+                print(f"[{Utils.get_formatted_date()}] [INFO] Return to Menu")
+                pygame.time.delay(200)  # Pequeno atraso para evitar mudança rápida de estado
+
                 # Fazendo o import dento do metodo para evitar erro de circular import"
                 from code.Menu import Menu
-                pygame.time.delay(200)  # Pequeno atraso para evitar mudança rápida de estado
                 game.set_state(Menu(game))
             else:
                 pass

@@ -1,6 +1,7 @@
 import pygame
 
 from code.Const import CELL_SIZE, GREEN, SCREEN_WIDTH, SCREEN_HEIGHT
+from code.Utils import Utils
 
 
 class Snake:
@@ -25,12 +26,14 @@ class Snake:
     def grow(self, special):
         self.growing = True
         if special:
-            self.score += 50  # Comida especial vale 50 pontos
+            print(f"[{Utils.get_formatted_date()}] [INFO] Ate the special food")
+            self.score += 50
             collision_sound = pygame.mixer.Sound('./asset/win-176035.mp3')
             collision_sound.set_volume(0.5)
             collision_sound.play()
         else:
-            self.score += 10  # Comida normal vale 10 pontos
+            print(f"[{Utils.get_formatted_date()}] [INFO] Ate the normal food")
+            self.score += 10
             collision_sound = pygame.mixer.Sound('./asset/apple_bite.ogg')
             collision_sound.set_volume(0.3)
             collision_sound.play()
@@ -39,10 +42,12 @@ class Snake:
         head = self.body[0]
         # Colisão com a parede
         if head[0] < 0 or head[0] >= SCREEN_WIDTH or head[1] < 0 or head[1] >= SCREEN_HEIGHT:
+            print(f"[{Utils.get_formatted_date()}] [INFO] Wall collision")
             self.collision_sound.play()
             return True
         # Colisão consigo mesma
         if head in self.body[1:]:
+            print(f"[{Utils.get_formatted_date()}] [INFO] Collision with itself")
             self.collision_sound.play()
             return True
         return False
