@@ -6,6 +6,7 @@ from code.GameOverState import GameOverState
 from code.Menu import Menu
 from code.Snake import Snake
 
+# TENHO QUE CONTINUAR COM O STATE, TERMINAR O MENU COM AS OUTRAS OPÇÕES E TBM COLOCAR O TIMER NA TELA DO JOGO
 
 class Game:
     def __init__(self):
