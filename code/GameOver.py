@@ -4,7 +4,7 @@ from code.Const import BLACK, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE
 from code.DBProxy import DBProxy
 
 
-class GameOverState:
+class GameOver:
     def __init__(self, game):
         self.last_score = None
         self.score = 0
