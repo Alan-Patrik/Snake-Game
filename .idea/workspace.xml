@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b73d6d9c-177a-4ee6-8446-b3e59ddcf53a" name="Changes" comment="adding static menu">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Menu.py" afterDir="false" />
-    </list>
+    <list default="true" id="b73d6d9c-177a-4ee6-8446-b3e59ddcf53a" name="Changes" comment="adding snake movement" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -116,7 +112,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1742508772342</updated>
-      <workItem from="1742508773471" duration="8263000" />
+      <workItem from="1742508773471" duration="8633000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -142,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742513138647</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="adding snake movement">
+      <option name="closed" value="true" />
+      <created>1742519738819</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742519738819</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,9 +179,10 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="adding configuration constant variables" />
     <MESSAGE value="adding static menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding static menu" />
+    <MESSAGE value="adding snake movement" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding snake movement" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Snake_Game$main.coverage" NAME="main Coverage Results" MODIFIED="1742519390102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Snake_Game$main.coverage" NAME="main Coverage Results" MODIFIED="1742519762310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
