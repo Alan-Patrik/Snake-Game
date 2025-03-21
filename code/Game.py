@@ -2,11 +2,11 @@ import pygame
 
 from code.Const import SCREEN_WIDTH, SCREEN_HEIGHT, FPS
 from code.Food import Food
-from code.GameOverState import GameOverState
+from code.GameOver import GameOver
+from code.HighScores import HighScores
 from code.Menu import Menu
 from code.Snake import Snake
 
-# TENHO QUE CONTINUAR COM O STATE, TERMINAR O MENU COM AS OUTRAS OPÇÕES E TBM COLOCAR O TIMER NA TELA DO JOGO
 
 class Game:
     def __init__(self):
@@ -16,7 +16,8 @@ class Game:
         self.snake = Snake()
         self.food = Food()
         self.state = Menu(self)
-        self.gameOver = GameOverState(self)
+        self.gameOver = GameOver(self)
+        self.highScore = HighScores(self)
 
     def set_state(self, new_state):
         self.state = new_state

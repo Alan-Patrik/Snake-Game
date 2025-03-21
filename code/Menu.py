@@ -1,6 +1,7 @@
 import pygame
 
 from code.Const import BLACK, WHITE, SCREEN_WIDTH, SCREEN_HEIGHT
+from code.DBProxy import DBProxy
 from code.PlayingState import PlayingState
 
 
@@ -20,7 +21,17 @@ class Menu:
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_p:  # Iniciar o jogo pressionando P
                     pygame.time.delay(200)
-                    game.state = PlayingState()
+                    game.set_state(PlayingState())
+                if event.key == pygame.K_q:  # Sair do jogo pressionando Q
+                    pygame.quit()
+                    db_proxy = DBProxy(db_name="snake_game_DB")
+                    db_proxy.close()
+                    exit()
+                if event.key == pygame.K_s:  # Ver a pontuação
+                    # Fazendo o import dento do metodo para evitar erro de circular import"
+                    from code.HighScores import HighScores
+                    pygame.time.delay(200)
+                    game.set_state(HighScores(game))
             else:
                 pass
 

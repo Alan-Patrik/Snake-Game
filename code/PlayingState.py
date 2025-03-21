@@ -56,8 +56,8 @@ class PlayingState:
             db_proxy.save({'score': game.snake.score, 'date': Utils.get_formatted_date()})
             pygame.time.delay(500)
 
-            from code.GameOverState import GameOverState
-            game.set_state(GameOverState(game))
+            from code.GameOver import GameOver
+            game.set_state(GameOver(game))
             pygame.mixer.music.load('./asset/game_over.mp3')
             pygame.mixer.music.play()  # Toca o som a perder o jogo
             pygame.mixer.music.play(-1)  # Fica tocando a música infinitamente
