@@ -5,6 +5,9 @@ from code.PlayingState import PlayingState
 
 
 class Menu:
+    def __init__(self, game):
+        pygame.mixer.init()
+
     def handle_input(self, game):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

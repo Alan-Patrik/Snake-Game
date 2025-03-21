@@ -21,6 +21,9 @@ class PlayingState:
 
     def update(self, game):
         game.snake.move()
+        if game.snake.check_collision():
+            pass
+
         if game.snake.body[0] == game.food.position:
             game.snake.grow()
             game.food.randomize_position()

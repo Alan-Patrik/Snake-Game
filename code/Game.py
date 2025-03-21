@@ -14,7 +14,7 @@ class Game:
         self.clock = pygame.time.Clock()
         self.snake = Snake()
         self.food = Food()
-        self.state = Menu()
+        self.state = Menu(self)
 
     def set_state(self, new_state: State):
         self.state = new_state
