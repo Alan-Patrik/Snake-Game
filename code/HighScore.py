@@ -2,10 +2,11 @@ import pygame
 
 from code.Const import BLACK, WHITE, SCREEN_WIDTH, SCREEN_HEIGHT
 from code.DBProxy import DBProxy
+from code.GameState import GameState
 from code.Menu import Menu
 
 
-class HighScores:
+class HighScore(GameState):
     def __init__(self, game):
         self.top_scores = []
         self.get_scores_into_database()
