@@ -5,7 +5,6 @@ from code.Food import Food
 from code.GameOverState import GameOverState
 from code.Menu import Menu
 from code.Snake import Snake
-from code.State import State
 
 
 class Game:
@@ -18,7 +17,7 @@ class Game:
         self.state = Menu(self)
         self.gameOver = GameOverState(self)
 
-    def set_state(self, new_state: State):
+    def set_state(self, new_state):
         self.state = new_state
 
     def handle_events(self):

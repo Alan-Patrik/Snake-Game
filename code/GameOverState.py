@@ -2,12 +2,10 @@ import pygame
 
 from code.Const import BLACK, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE
 from code.DBProxy import DBProxy
-from code.State import State
 
 
-class GameOverState(State, ):
+class GameOverState:
     def __init__(self, game):
-        super().__init__(game)
         self.last_score = None
         self.score = 0
         self.get_score_into_database()
@@ -36,18 +34,18 @@ class GameOverState(State, ):
         title = "GAME OVER"
         sub_title = f"Score: {self.score}"
 
-        self.game.screen.fill(BLACK)
+        game.screen.fill(BLACK)
         font = pygame.font.SysFont(None, 55)
         font_small = pygame.font.SysFont(None, 30)
 
         text_title = font.render(title, True, WHITE)
         text_sub_title = font.render(sub_title, True, WHITE)
 
-        self.game.screen.blit(text_title, (((SCREEN_WIDTH / 2) - (len(title) + 100)), (SCREEN_HEIGHT / 4)))
-        self.game.screen.blit(text_sub_title, (((SCREEN_WIDTH / 2) - (len(sub_title) + 80)), (SCREEN_HEIGHT / 2)))
+        game.screen.blit(text_title, (((SCREEN_WIDTH / 2) - (len(title) + 100)), (SCREEN_HEIGHT / 4)))
+        game.screen.blit(text_sub_title, (((SCREEN_WIDTH / 2) - (len(sub_title) + 80)), (SCREEN_HEIGHT / 2)))
 
         back_text = font_small.render("Press M to return the Menu!!!", True, WHITE)
-        self.game.screen.blit(back_text, (SCREEN_WIDTH // 4, SCREEN_HEIGHT - 50))
+        game.screen.blit(back_text, (SCREEN_WIDTH // 4, SCREEN_HEIGHT - 50))
 
         pygame.display.flip()
 

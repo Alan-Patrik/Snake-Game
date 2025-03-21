@@ -21,6 +21,7 @@ class Snake:
         if self.growing:
             self.body.append(self.body[-1])  # Cresce a cobra
             self.growing = False
+            self.score += 10  # A cada comida, a cobra ganha 10 pontos
             collision_sound = pygame.mixer.Sound('./asset/apple_bite.ogg')
             collision_sound.set_volume(0.2)
             collision_sound.play()
