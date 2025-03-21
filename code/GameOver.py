@@ -1,7 +1,6 @@
 import pygame
 
 from code.Const import BLACK, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE
-from code.DBProxy import DBProxy
 from code.GameState import GameState
 
 
@@ -9,14 +8,13 @@ class GameOver(GameState):
     def __init__(self, game):
         self.last_score = None
         self.score = 0
-        self.get_score_into_database()
+        self.get_score_into_database(game)
 
     def handle_input(self, game):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
-                db_proxy = DBProxy(db_name="snake_game_DB")
-                db_proxy.close()
+                game.db_proxy.close()
                 exit()
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_m:
                 # Fazendo o import dento do metodo para evitar erro de circular import"
@@ -51,6 +49,5 @@ class GameOver(GameState):
 
         pygame.display.flip()
 
-    def get_score_into_database(self):
-        db_proxy = DBProxy(db_name="snake_game_DB")
-        self.last_score = db_proxy.get_last_score()
+    def get_score_into_database(self, game):
+        self.last_score = game.db_proxy.get_last_score()

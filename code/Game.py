@@ -1,12 +1,14 @@
 import pygame
 
 from code.Const import SCREEN_WIDTH, SCREEN_HEIGHT, FPS
+from code.DBProxy import DBProxy
 from code.Food import Food
 from code.GameOver import GameOver
 from code.GameState import GameState
 from code.HighScore import HighScore
 from code.Menu import Menu
 from code.Snake import Snake
+from code.SpecialFood import SpecialFood
 
 
 class Game:
@@ -14,8 +16,10 @@ class Game:
         pygame.init()
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         self.clock = pygame.time.Clock()
+        self.db_proxy = DBProxy(db_name="snake_game_DB")
         self.snake = Snake()
         self.food = Food()
+        self.special_food = SpecialFood()
         self.state = Menu(self)
         self.gameOver = GameOver(self)
         self.highScore = HighScore(self)

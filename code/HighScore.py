@@ -1,7 +1,6 @@
 import pygame
 
 from code.Const import BLACK, WHITE, SCREEN_WIDTH, SCREEN_HEIGHT
-from code.DBProxy import DBProxy
 from code.GameState import GameState
 from code.Menu import Menu
 
@@ -9,14 +8,13 @@ from code.Menu import Menu
 class HighScore(GameState):
     def __init__(self, game):
         self.top_scores = []
-        self.get_scores_into_database()
+        self.get_scores_into_database(game)
 
     def handle_input(self, game):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                game.db_proxy.close()
                 pygame.quit()
-                db_proxy = DBProxy(db_name="snake_game_DB")
-                db_proxy.close()
                 exit()
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_m:  # Pressionou M para voltar ao menu
                 pygame.time.delay(200)  # Pequeno atraso para evitar mudança rápida de estado
@@ -61,6 +59,5 @@ class HighScore(GameState):
         pygame.display.flip()
 
     # Buscar as 5 melhores pontiuação no jogo
-    def get_scores_into_database(self):
-        db_proxy = DBProxy("snake_game_DB")
-        self.top_scores = db_proxy.get_top_scores()
+    def get_scores_into_database(self, game):
+        self.top_scores = game.db_proxy.get_top_scores()

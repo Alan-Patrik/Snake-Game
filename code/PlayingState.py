@@ -1,7 +1,6 @@
 import pygame
 
 from code.Const import BLACK, CELL_SIZE, WHITE
-from code.DBProxy import DBProxy
 from code.GameState import GameState
 from code.Snake import Snake
 from code.Utils import Utils
@@ -10,10 +9,12 @@ from code.Utils import Utils
 class PlayingState(GameState):
     def __init__(self):
         self.start_time = pygame.time.get_ticks()  # Guarda o tempo inicial do jogo
+        self.last_special_spawn = pygame.time.get_ticks()
 
     def handle_input(self, game):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                game.db_proxy.close()
                 pygame.quit()
                 exit()
             if event.type == pygame.KEYDOWN:
@@ -27,12 +28,21 @@ class PlayingState(GameState):
                     game.snake.change_direction((CELL_SIZE, 0))
 
     def update(self, game):
-
         game.snake.move()
+        current_time = pygame.time.get_ticks()
+
+        # Gerar comida especial a cada 8 segundos
+        if current_time - self.last_special_spawn > 8000:
+            game.special_food.spawn(current_time)
+            self.last_special_spawn = current_time
+
+            # Remover comida especial após 5 segundos
+        if game.special_food.active and (current_time - game.special_food.spawn_time > 5000):
+            game.special_food.active = False
+
         if game.snake.check_collision():
             # Salvar a pontuação no banco de dados
-            db_proxy = DBProxy(db_name="snake_game_DB")
-            db_proxy.save({'score': game.snake.score, 'date': Utils.get_formatted_date()})
+            game.db_proxy.save({'score': game.snake.score, 'date': Utils.get_formatted_date()})
             pygame.time.delay(500)
 
             # Fazendo o import dento do metodo para evitar erro de circular import"
@@ -40,19 +50,23 @@ class PlayingState(GameState):
             game.set_state(GameOver(game))
 
             pygame.mixer.music.load('./asset/game_over.mp3')
-            pygame.mixer.music.play()  # Toca o som a perder o jogo
-            pygame.mixer.music.play(-1)  # Fica tocando a música infinitamente
+            pygame.mixer.music.play(-1)  # Toca o som a perder o jogo
             pygame.mixer.music.set_volume(0.4)
             game.snake = Snake()
 
         if game.snake.body[0] == game.food.position:
-            game.snake.grow()
-            game.food.randomize_position()
+            game.snake.grow(False)
+            game.food.random_position()
+
+        if game.snake.body[0] == game.special_food.position:
+            game.snake.grow(True)
+            game.special_food.active = False  # Desativa a comida especial após ser comida
 
     def draw(self, game):
         game.screen.fill(BLACK)
         game.snake.draw(game.screen)
         game.food.draw(game.screen)
+        game.special_food.draw(game.screen)
         get_current_time_game(game, self.start_time)
         get_current_score(game)
 
