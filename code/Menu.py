@@ -1,7 +1,6 @@
 import pygame
 
 from code.Const import BLACK, WHITE, SCREEN_WIDTH, SCREEN_HEIGHT
-from code.DBProxy import DBProxy
 from code.GameState import GameState
 from code.PlayingState import PlayingState
 
@@ -25,8 +24,7 @@ class Menu(GameState):
                     game.set_state(PlayingState())
                 if event.key == pygame.K_q:  # Sair do jogo pressionando Q
                     pygame.quit()
-                    db_proxy = DBProxy(db_name="snake_game_DB")
-                    db_proxy.close()
+                    game.db_proxy.close()
                     exit()
                 if event.key == pygame.K_s:  # Ver a pontuação
                     # Fazendo o import dento do metodo para evitar erro de circular import"
