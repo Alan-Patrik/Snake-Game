@@ -2,9 +2,10 @@ import pygame
 
 from code.Const import BLACK, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE
 from code.DBProxy import DBProxy
+from code.GameState import GameState
 
 
-class GameOver:
+class GameOver(GameState):
     def __init__(self, game):
         self.last_score = None
         self.score = 0
@@ -18,6 +19,7 @@ class GameOver:
                 db_proxy.close()
                 exit()
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_m:
+                # Fazendo o import dento do metodo para evitar erro de circular import"
                 from code.Menu import Menu
                 pygame.time.delay(200)  # Pequeno atraso para evitar mudança rápida de estado
                 game.set_state(Menu(game))

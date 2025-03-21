@@ -2,10 +2,11 @@ import pygame
 
 from code.Const import BLACK, WHITE, SCREEN_WIDTH, SCREEN_HEIGHT
 from code.DBProxy import DBProxy
+from code.GameState import GameState
 from code.PlayingState import PlayingState
 
 
-class Menu:
+class Menu(GameState):
     def __init__(self, game):
         pygame.mixer.init()
         pygame.mixer.music.load('./asset/canary.ogg')
@@ -29,9 +30,9 @@ class Menu:
                     exit()
                 if event.key == pygame.K_s:  # Ver a pontuação
                     # Fazendo o import dento do metodo para evitar erro de circular import"
-                    from code.HighScores import HighScores
+                    from code.HighScore import HighScore
                     pygame.time.delay(200)
-                    game.set_state(HighScores(game))
+                    game.set_state(HighScore(game))
             else:
                 pass
 
