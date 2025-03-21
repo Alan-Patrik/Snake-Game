@@ -7,6 +7,10 @@ from code.PlayingState import PlayingState
 class Menu:
     def __init__(self, game):
         pygame.mixer.init()
+        pygame.mixer.music.load('./asset/canary.ogg')
+        pygame.mixer.music.play()  # Toca o som inicial do jogo
+        pygame.mixer.music.play(-1)
+        pygame.mixer.music.set_volume(0.2)
 
     def handle_input(self, game):
         for event in pygame.event.get():
