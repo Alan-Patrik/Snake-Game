@@ -1,6 +1,7 @@
 import pygame
 
 from code.Const import SCREEN_WIDTH, SCREEN_HEIGHT, FPS
+from code.Food import Food
 from code.Menu import Menu
 from code.Snake import Snake
 from code.State import State
@@ -10,8 +11,9 @@ class Game:
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-        self.snake = Snake()
         self.clock = pygame.time.Clock()
+        self.snake = Snake()
+        self.food = Food()
         self.state = Menu()
 
     def set_state(self, new_state: State):

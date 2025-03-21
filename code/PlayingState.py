@@ -21,8 +21,12 @@ class PlayingState:
 
     def update(self, game):
         game.snake.move()
+        if game.snake.body[0] == game.food.position:
+            game.snake.grow()
+            game.food.randomize_position()
 
     def draw(self, game):
         game.screen.fill(BLACK)
         game.snake.draw(game.screen)
+        game.food.draw(game.screen)
         pygame.display.flip()
