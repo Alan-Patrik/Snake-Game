@@ -14,6 +14,8 @@ class PlayingState(GameState):
     def handle_input(self, game):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                print(f"[{Utils.get_formatted_date()}] [INFO] Game finished!!")
+                print(f"[{Utils.get_formatted_date()}] [INFO] Closing database connection")
                 game.db_proxy.close()
                 pygame.quit()
                 exit()
@@ -41,17 +43,20 @@ class PlayingState(GameState):
             game.special_food.active = False
 
         if game.snake.check_collision():
+            pygame.time.delay(500)  # Aguarda até terminar de tocar a música de colisão
+
+            print(f"[{Utils.get_formatted_date()}] [INFO] Go to the Game Over")
+            pygame.mixer.music.load('./asset/game_over.mp3')
+            pygame.mixer.music.play(-1)  # Toca o som a perder o jogo
+            pygame.mixer.music.set_volume(0.4)
+
+            print(f"[{Utils.get_formatted_date()}] [INFO] Saving score to database")
             # Salvar a pontuação no banco de dados
             game.db_proxy.save({'score': game.snake.score, 'date': Utils.get_formatted_date()})
-            pygame.time.delay(500)
 
             # Fazendo o import dento do metodo para evitar erro de circular import"
             from code.GameOver import GameOver
             game.set_state(GameOver(game))
-
-            pygame.mixer.music.load('./asset/game_over.mp3')
-            pygame.mixer.music.play(-1)  # Toca o som a perder o jogo
-            pygame.mixer.music.set_volume(0.4)
             game.snake = Snake()
 
         if game.snake.body[0] == game.food.position:

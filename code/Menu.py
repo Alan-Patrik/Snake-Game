@@ -3,6 +3,7 @@ import pygame
 from code.Const import BLACK, WHITE, SCREEN_WIDTH, SCREEN_HEIGHT
 from code.GameState import GameState
 from code.PlayingState import PlayingState
+from code.Utils import Utils
 
 
 class Menu(GameState):
@@ -16,20 +17,27 @@ class Menu(GameState):
     def handle_input(self, game):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
+                print(f"[{Utils.get_formatted_date()}] [INFO] Game finished!!")
+                print(f"[{Utils.get_formatted_date()}] [INFO] Closing database connection")
                 pygame.quit()
                 exit()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_p:  # Iniciar o jogo pressionando P
+                    print(f"[{Utils.get_formatted_date()}] [INFO] Go to the Playing State")
                     pygame.time.delay(200)
                     game.set_state(PlayingState())
                 if event.key == pygame.K_q:  # Sair do jogo pressionando Q
+                    print(f"[{Utils.get_formatted_date()}] [INFO] Game finished!!")
+                    print(f"[{Utils.get_formatted_date()}] [INFO] Closing database connection")
                     pygame.quit()
                     game.db_proxy.close()
                     exit()
                 if event.key == pygame.K_s:  # Ver a pontuação
+                    print(f"[{Utils.get_formatted_date()}] [INFO] Go to the High Scores")
+                    pygame.time.delay(200)
+
                     # Fazendo o import dento do metodo para evitar erro de circular import"
                     from code.HighScore import HighScore
-                    pygame.time.delay(200)
                     game.set_state(HighScore(game))
             else:
                 pass

@@ -9,10 +9,12 @@ from code.HighScore import HighScore
 from code.Menu import Menu
 from code.Snake import Snake
 from code.SpecialFood import SpecialFood
+from code.Utils import Utils
 
 
 class Game:
     def __init__(self):
+        print(f"[{Utils.get_formatted_date()}] [INFO] Start Game!!")
         pygame.init()
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
         self.clock = pygame.time.Clock()
@@ -21,8 +23,6 @@ class Game:
         self.food = Food()
         self.special_food = SpecialFood()
         self.state = Menu(self)
-        self.gameOver = GameOver(self)
-        self.highScore = HighScore(self)
 
     def set_state(self, new_state: GameState):
         self.state = new_state
