@@ -2,9 +2,9 @@ import pygame
 
 from code.Const import SCREEN_WIDTH, SCREEN_HEIGHT, FPS
 from code.Food import Food
+from code.GameOverState import GameOverState
 from code.Menu import Menu
 from code.Snake import Snake
-from code.State import State
 
 
 class Game:
@@ -15,8 +15,9 @@ class Game:
         self.snake = Snake()
         self.food = Food()
         self.state = Menu(self)
+        self.gameOver = GameOverState(self)
 
-    def set_state(self, new_state: State):
+    def set_state(self, new_state):
         self.state = new_state
 
     def handle_events(self):

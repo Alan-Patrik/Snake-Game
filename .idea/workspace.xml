@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b73d6d9c-177a-4ee6-8446-b3e59ddcf53a" name="Changes" comment="adding snake food">
+    <list default="true" id="b73d6d9c-177a-4ee6-8446-b3e59ddcf53a" name="Changes" comment="adding special sounds when eating and for collisions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Menu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/PlayingState.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/PlayingState.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/GameOverState.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/GameOverState.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/Snake.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Snake.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

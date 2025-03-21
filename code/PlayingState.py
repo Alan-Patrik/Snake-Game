@@ -1,6 +1,9 @@
 import pygame
 
 from code.Const import BLACK, CELL_SIZE
+from code.DBProxy import DBProxy
+from code.Snake import Snake
+from code.Utils import Utils
 
 
 class PlayingState:
@@ -22,7 +25,18 @@ class PlayingState:
     def update(self, game):
         game.snake.move()
         if game.snake.check_collision():
-            pass
+            # Salvar a pontuação no banco de dados
+            db_proxy = DBProxy(db_name="snake_game_DB")
+            db_proxy.save({'score': game.snake.score, 'date': Utils.get_formatted_date()})
+            pygame.time.delay(500)
+
+            from code.GameOverState import GameOverState
+            game.set_state(GameOverState(game))
+            pygame.mixer.music.load('./asset/game_over.mp3')
+            pygame.mixer.music.play()  # Toca o som a perder o jogo
+            pygame.mixer.music.play(-1)  # Fica tocando a música infinitamente
+            pygame.mixer.music.set_volume(0.4)
+            game.snake = Snake()
 
         if game.snake.body[0] == game.food.position:
             game.snake.grow()
