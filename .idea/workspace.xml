@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b73d6d9c-177a-4ee6-8446-b3e59ddcf53a" name="Changes" comment="adding special sounds when eating and for collisions">
+    <list default="true" id="b73d6d9c-177a-4ee6-8446-b3e59ddcf53a" name="Changes" comment="adding background sound">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/GameOverState.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/GameOverState.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Snake.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Snake.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/PlayingState.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/PlayingState.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +55,7 @@
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature__snake&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature__menu&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/AlanPatrik/Documents/WorkspaceAlan/Snake-Game&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -123,6 +122,7 @@
       <option name="presentableId" value="Default" />
       <updated>1742508772342</updated>
       <workItem from="1742508773471" duration="12389000" />
+      <workItem from="1742559847329" duration="5290000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -211,6 +211,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="adding snake food" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Snake_Game$main.coverage" NAME="main Coverage Results" MODIFIED="1742523529046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Snake_Game$main.coverage" NAME="main Coverage Results" MODIFIED="1742565292073" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
