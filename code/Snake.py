@@ -9,7 +9,7 @@ class Snake:
         self.direction = (CELL_SIZE, 0)  # Direção inicial é para a direita
         self.growing = False  # A cobra não cresce no início
         self.score = 0  # Pontuação inicial
-        
+
         self.collision_sound = pygame.mixer.Sound('./asset/knifesharpener2.flac')
         self.collision_sound.set_volume(0.2)
 
