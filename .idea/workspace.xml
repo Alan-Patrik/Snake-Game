@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b73d6d9c-177a-4ee6-8446-b3e59ddcf53a" name="Changes" comment="removing bug when placing food in a new random position">
+    <list default="true" id="b73d6d9c-177a-4ee6-8446-b3e59ddcf53a" name="Changes" comment="adding exception handling">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Const.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Const.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/DBProxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/DBProxy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Game.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/GameOver.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/GameOver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/HighScore.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/HighScore.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Menu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/PlayingState.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/PlayingState.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/Snake.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/Snake.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +133,7 @@
       <workItem from="1742598170175" duration="707000" />
       <workItem from="1743079201871" duration="60000" />
       <workItem from="1743129008740" duration="35000" />
-      <workItem from="1743262771695" duration="11206000" />
+      <workItem from="1743262771695" duration="12348000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -233,7 +223,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743281594764</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="adding exception handling">
+      <option name="closed" value="true" />
+      <created>1743284655987</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1743284655987</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,9 +272,10 @@
     <MESSAGE value="adding logs to the system" />
     <MESSAGE value="removing unused imports" />
     <MESSAGE value="removing bug when placing food in a new random position" />
-    <option name="LAST_COMMIT_MESSAGE" value="removing bug when placing food in a new random position" />
+    <MESSAGE value="adding exception handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding exception handling" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Snake_Game$main.coverage" NAME="main Coverage Results" MODIFIED="1743284279556" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Snake_Game$main.coverage" NAME="main Coverage Results" MODIFIED="1743285331540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
