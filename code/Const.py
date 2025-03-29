@@ -1,10 +1,10 @@
-# Configurações do jogo
+# Game Settings
 SCREEN_WIDTH = 600
 SCREEN_HEIGHT = 600
 CELL_SIZE = 20
 FPS = 12
 
-# Cores
+# Colors
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)

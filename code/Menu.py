@@ -9,7 +9,7 @@ from code.Utils import Utils
 
 
 class Menu(GameState):
-    def __init__(self, game):
+    def __init__(self):
         pygame.mixer.init()
         pygame.mixer.music.load('./asset/canary.ogg')
         pygame.mixer.music.play()  # Toca o som inicial do jogo
@@ -24,21 +24,21 @@ class Menu(GameState):
                 pygame.quit()
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_p:  # Iniciar o jogo pressionando P
+                if event.key == pygame.K_p:  # Start the game by pressing P
                     print(f"[{Utils.get_formatted_date()}] [INFO] Go to the Playing State")
                     pygame.time.delay(200)
                     game.set_state(PlayingState())
-                if event.key == pygame.K_q:  # Sair do jogo pressionando Q
+                if event.key == pygame.K_q:  # Quit the game by pressing Q
                     print(f"[{Utils.get_formatted_date()}] [INFO] Game finished!!")
                     print(f"[{Utils.get_formatted_date()}] [INFO] Closing database connection")
                     pygame.quit()
                     game.db_proxy.close()
                     sys.exit()
-                if event.key == pygame.K_s:  # Ver a pontuação
+                if event.key == pygame.K_s:  # View Score
                     print(f"[{Utils.get_formatted_date()}] [INFO] Go to the High Scores")
                     pygame.time.delay(200)
 
-                    # Fazendo o import dento do metodo para evitar erro de circular import"
+                    # Doing the import inside the method to avoid circular import error
                     from code.HighScore import HighScore
                     game.set_state(HighScore(game))
             else:

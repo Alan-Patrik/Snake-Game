@@ -27,7 +27,7 @@ class GameOver(GameState):
 
                 # Fazendo o import dento do metodo para evitar erro de circular import"
                 from code.Menu import Menu
-                game.set_state(Menu(game))
+                game.set_state(Menu())
             else:
                 pass
 

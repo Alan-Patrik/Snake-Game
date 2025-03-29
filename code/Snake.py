@@ -6,10 +6,10 @@ from code.Utils import Utils
 
 class Snake:
     def __init__(self):
-        self.body = [(100, 100), (80, 100), (60, 100)]  # Começa com 3 partes
-        self.direction = (CELL_SIZE, 0)  # Direção inicial é para a direita
-        self.growing = False  # A cobra não cresce no início
-        self.score = 0  # Pontuação inicial
+        self.body = [(100, 100), (80, 100), (60, 100)]  # It starts with 3 parts
+        self.direction = (CELL_SIZE, 0)  # Initial direction is to the right
+        self.growing = False  # The snake does not grow at first
+        self.score = 0  # Initial score
 
         self.collision_sound = pygame.mixer.Sound('./asset/knifesharpener2.flac')
         self.collision_sound.set_volume(0.2)
@@ -20,7 +20,7 @@ class Snake:
         self.body = [new_head] + self.body[:-1]
 
         if self.growing:
-            self.body.append(self.body[-1])  # Cresce a cobra
+            self.body.append(self.body[-1])  # The snake grows
             self.growing = False
 
     def grow(self, special):
@@ -40,12 +40,12 @@ class Snake:
 
     def check_collision(self):
         head = self.body[0]
-        # Colisão com a parede
+        # Collision with the wall
         if head[0] < 0 or head[0] >= SCREEN_WIDTH or head[1] < 0 or head[1] >= SCREEN_HEIGHT:
             print(f"[{Utils.get_formatted_date()}] [INFO] Wall collision")
             self.collision_sound.play()
             return True
-        # Colisão consigo mesma
+        # Collision with itself
         if head in self.body[1:]:
             print(f"[{Utils.get_formatted_date()}] [INFO] Collision with itself")
             self.collision_sound.play()
