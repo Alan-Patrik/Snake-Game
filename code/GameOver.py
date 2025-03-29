@@ -1,3 +1,5 @@
+import sys
+
 import pygame
 
 from code.Const import BLACK, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE
@@ -18,7 +20,7 @@ class GameOver(GameState):
                 print(f"[{Utils.get_formatted_date()}] [INFO] Closing database connection")
                 pygame.quit()
                 game.db_proxy.close()
-                exit()
+                sys.exit()
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_m:
                 print(f"[{Utils.get_formatted_date()}] [INFO] Return to Menu")
                 pygame.time.delay(200)  # Pequeno atraso para evitar mudança rápida de estado

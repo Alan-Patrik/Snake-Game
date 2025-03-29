@@ -1,3 +1,5 @@
+import sys
+
 import pygame
 
 from code.Const import BLACK, WHITE, SCREEN_WIDTH, SCREEN_HEIGHT
@@ -18,7 +20,7 @@ class HighScore(GameState):
                 print(f"[{Utils.get_formatted_date()}] [INFO] Closing database connection")
                 game.db_proxy.close()
                 pygame.quit()
-                exit()
+                sys.exit()
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_m:  # Pressionou M para voltar ao menu
                 print(f"[{Utils.get_formatted_date()}] [INFO] Return to Menu")
                 pygame.time.delay(200)  # Pequeno atraso para evitar mudança rápida de estado

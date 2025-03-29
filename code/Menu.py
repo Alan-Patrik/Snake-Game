@@ -1,3 +1,5 @@
+import sys
+
 import pygame
 
 from code.Const import BLACK, WHITE, SCREEN_WIDTH, SCREEN_HEIGHT
@@ -20,7 +22,7 @@ class Menu(GameState):
                 print(f"[{Utils.get_formatted_date()}] [INFO] Game finished!!")
                 print(f"[{Utils.get_formatted_date()}] [INFO] Closing database connection")
                 pygame.quit()
-                exit()
+                sys.exit()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_p:  # Iniciar o jogo pressionando P
                     print(f"[{Utils.get_formatted_date()}] [INFO] Go to the Playing State")
@@ -31,7 +33,7 @@ class Menu(GameState):
                     print(f"[{Utils.get_formatted_date()}] [INFO] Closing database connection")
                     pygame.quit()
                     game.db_proxy.close()
-                    exit()
+                    sys.exit()
                 if event.key == pygame.K_s:  # Ver a pontuação
                     print(f"[{Utils.get_formatted_date()}] [INFO] Go to the High Scores")
                     pygame.time.delay(200)

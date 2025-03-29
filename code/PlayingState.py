@@ -1,8 +1,12 @@
+import sys
+
 import pygame
 
 from code.Const import BLACK, CELL_SIZE, WHITE
+from code.Food import Food
 from code.GameState import GameState
 from code.Snake import Snake
+from code.SpecialFood import SpecialFood
 from code.Utils import Utils
 
 
@@ -18,7 +22,7 @@ class PlayingState(GameState):
                 print(f"[{Utils.get_formatted_date()}] [INFO] Closing database connection")
                 game.db_proxy.close()
                 pygame.quit()
-                exit()
+                sys.exit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
                     game.snake.change_direction((0, -CELL_SIZE))
@@ -35,11 +39,11 @@ class PlayingState(GameState):
 
         # Gerar comida especial a cada 8 segundos
         if current_time - self.last_special_spawn > 8000:
-            game.special_food.spawn(current_time)
+            game.special_food.random_special_food_position(current_time=current_time)
             self.last_special_spawn = current_time
 
-            # Remover comida especial após 5 segundos
-        if game.special_food.active and (current_time - game.special_food.spawn_time > 5000):
+        # Remover comida especial após 5 segundos
+        if game.special_food.active and (current_time - game.special_food.spawn_time > 4000):
             game.special_food.active = False
 
         if game.snake.check_collision():
@@ -58,14 +62,20 @@ class PlayingState(GameState):
             from code.GameOver import GameOver
             game.set_state(GameOver(game))
             game.snake = Snake()
+            game.food = Food()
+            game.special_food = SpecialFood()
 
         if game.snake.body[0] == game.food.position:
             game.snake.grow(False)
-            game.food.random_position()
+
+            if game.food.position not in game.snake.body[0]:
+                game.food.random_food_position()
 
         if game.snake.body[0] == game.special_food.position:
             game.snake.grow(True)
-            game.special_food.active = False  # Desativa a comida especial após ser comida
+            if game.special_food.position not in game.snake.body[0]:
+                game.special_food.random_special_food_position(current_time=current_time)
+                game.special_food.active = False  # Desativa a comida especial após ser comida
 
     def draw(self, game):
         game.screen.fill(BLACK)

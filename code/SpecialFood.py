@@ -12,9 +12,10 @@ class SpecialFood:
         self.active = False
         self.spawn_time = 0
 
-    def spawn(self, current_time):
+    def random_special_food_position(self, current_time):
         self.position = (randint(0, (SCREEN_WIDTH // CELL_SIZE) - 1) * CELL_SIZE,
                          randint(0, (SCREEN_HEIGHT // CELL_SIZE) - 1) * CELL_SIZE)
+
         self.active = True
         self.spawn_time = current_time
 
