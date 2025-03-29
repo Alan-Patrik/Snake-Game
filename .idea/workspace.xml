@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b73d6d9c-177a-4ee6-8446-b3e59ddcf53a" name="Changes" comment="adding exception handling">
+    <list default="true" id="b73d6d9c-177a-4ee6-8446-b3e59ddcf53a" name="Changes" comment="editing RU.txt identification file">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,7 +134,7 @@
       <workItem from="1742598170175" duration="707000" />
       <workItem from="1743079201871" duration="60000" />
       <workItem from="1743129008740" duration="35000" />
-      <workItem from="1743262771695" duration="12348000" />
+      <workItem from="1743262771695" duration="12660000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -231,7 +232,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743284655987</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="editing RU.txt identification file">
+      <option name="closed" value="true" />
+      <created>1743285944911</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1743285944911</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +282,8 @@
     <MESSAGE value="removing unused imports" />
     <MESSAGE value="removing bug when placing food in a new random position" />
     <MESSAGE value="adding exception handling" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding exception handling" />
+    <MESSAGE value="editing RU.txt identification file" />
+    <option name="LAST_COMMIT_MESSAGE" value="editing RU.txt identification file" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Snake_Game$main.coverage" NAME="main Coverage Results" MODIFIED="1743285331540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
